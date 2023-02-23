@@ -25,5 +25,7 @@ use  App\Models\Phone;
     Route::get('/classes', [StudentController::class, 'classShow']);
     Route::get('/data', [StudentController::class, 'showData']);
     Route::get('/check', [StudentController::class, 'testData']);
+    Route::get('/companyCheck', [EmployeeController::class, 'showData']);
 
+    
 

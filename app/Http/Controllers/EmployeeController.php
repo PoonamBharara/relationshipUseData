@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
-
+use App\Models\Employe;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
@@ -21,5 +21,14 @@ class EmployeeController extends Controller
             ->select('employes.*', 'companies.company_name', 'orders.order_name')
             ->get();
             
+    }
+
+
+    public function showData(){
+        $result = Employe::with('getCompanies')->get();
+        foreach($result as $key => $d){
+            dd($d->getCompanies->employee_id);
+            // dd($d->getCompanies->employee_id);
+        }
     }
 }
