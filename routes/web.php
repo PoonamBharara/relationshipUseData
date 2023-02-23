@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
+use  App\Models\Phone;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +20,10 @@ use Illuminate\Support\Facades\Route;
         echo "hello";
     });
 
-    Route::get('/employeData', [EmployeeController::class, 'show']);
-    Route::get('/employeAllData', [EmployeeController::class, 'dataShow']);
+    // Route::get('/employeData', [EmployeeController::class, 'show']);
+    // Route::get('/employeAllData', [EmployeeController::class, 'dataShow']);
+    Route::get('/classes', [StudentController::class, 'classShow']);
+    Route::get('/data', [StudentController::class, 'showData']);
+    Route::get('/check', [StudentController::class, 'testData']);
+
 
