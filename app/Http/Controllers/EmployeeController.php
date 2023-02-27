@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Models\Employe;
+use App\Models\Company;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
@@ -28,7 +29,14 @@ class EmployeeController extends Controller
         $result = Employe::with('getCompanies')->get();
         foreach($result as $key => $d){
             dd($d->getCompanies->employee_id);
-            // dd($d->getCompanies->employee_id);
         }
+    }
+
+
+    public function showBelognstoData(){
+        $result = Company::with('employe')->get();   
+        foreach($result as $key => $b){
+            dd($b->employe->name);
+        } 
     }
 }

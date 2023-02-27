@@ -1,11 +1,16 @@
 <?php
 
+use App\Http\Controllers\CustomerCourser;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\StrudentForController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
-use  App\Models\Phone;
-
+use App\Models\Phone;
+use App\Models\Company;
+use App\Models\Comment;
+use App\Models\Post;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +22,7 @@ use  App\Models\Phone;
 |
 */
     Route::get('/', function(){
-        echo "hello";
+        return view('welcome');
     });
 
     // Route::get('/employeData', [EmployeeController::class, 'show']);
@@ -26,6 +31,17 @@ use  App\Models\Phone;
     Route::get('/data', [StudentController::class, 'showData']);
     Route::get('/check', [StudentController::class, 'testData']);
     Route::get('/companyCheck', [EmployeeController::class, 'showData']);
+    Route::get('/belongstoData', [EmployeeController::class,'showBelognstoData']);
+    Route::get('/getComments', [PostController::class, 'getComments']);
+    Route::get('/AllComments', [PostController::class, 'postBelongsTo']);
+    Route::get('/HasMany', [StrudentForController::class, 'showHasMany']);
+    Route::get('/showStudent', [StrudentForController::class, 'showClassToStudent']);
+    Route::get('/Customer', [CustomerCourser::class, 'Customer']);
+    Route::post('/get-customer', [CustomerCourser::class, 'get_customer']);
+
+    
+    
+    // Route::get('/belongstoData', [EmployeeController::class,'']);
 
     
 
